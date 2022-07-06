@@ -1,4 +1,4 @@
-﻿namespace BoundedContextDemo.Catalog.Infrastructure;
+﻿namespace BoundedContextDemo.Infrastructure;
 
 public abstract class Entity
 {

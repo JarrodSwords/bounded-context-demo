@@ -1,12 +1,14 @@
-﻿namespace BoundedContextDemo.Catalog.Infrastructure;
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace BoundedContextDemo.Infrastructure;
 
 public abstract class Repository<T> where T : Entity
 {
-    private readonly Context _context;
+    private readonly DbContext _context;
 
     #region Creation
 
-    protected Repository(Context context)
+    protected Repository(DbContext context)
     {
         _context = context;
     }

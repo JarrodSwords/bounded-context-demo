@@ -1,4 +1,6 @@
-﻿namespace BoundedContextDemo.Catalog.Infrastructure;
+﻿using BoundedContextDemo.Infrastructure;
+
+namespace BoundedContextDemo.Catalog.Infrastructure;
 
 using CatalogProduct = Catalog.Product;
 
