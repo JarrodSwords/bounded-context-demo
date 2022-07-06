@@ -18,5 +18,7 @@ public class UnitOfWork : IUnitOfWork
 
     public IProductRepository Products => _products ??= new ProductRepository(_context);
 
+    public void Commit() => _context.SaveChanges();
+
     #endregion
 }
