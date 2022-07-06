@@ -7,6 +7,7 @@ public class Product : Entity
     public string Description { get; set; }
     public string Name { get; set; }
     public string Sku { get; set; }
+    public uint UnitsOnHand { get; set; }
 
     #endregion
 }

@@ -19,9 +19,9 @@ public class RegisterProductHandler : Handler<RegisterProduct>
         var (description, name, sku) = args;
         var existingSkus = Uow.Products.FetchExistingSkus().ToArray();
 
-        var isSuccess = TryRegister(out var registeredProduct, description, name, sku, existingSkus);
+        var productRegistered = TryRegister(out var registeredProduct, description, name, sku, existingSkus);
 
-        if (!isSuccess)
+        if (!productRegistered)
             return;
 
         Uow.Products.Create(registeredProduct);
