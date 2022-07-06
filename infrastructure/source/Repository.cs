@@ -4,20 +4,20 @@ namespace BoundedContextDemo.Infrastructure;
 
 public abstract class Repository<T> where T : Entity
 {
-    private readonly DbContext _context;
+    protected readonly DbContext Context;
 
     #region Creation
 
     protected Repository(DbContext context)
     {
-        _context = context;
+        Context = context;
     }
 
     #endregion
 
     #region Public Interface
 
-    public void Create(T entity) => _context.Set<T>().Add(entity);
+    public void Create(T entity) => Context.Set<T>().Add(entity);
 
     #endregion
 }

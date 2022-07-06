@@ -17,6 +17,7 @@ public class ProductRepository : Repository<Product>, IProductRepository
     #region IProductRepository Implementation
 
     public void Create(CatalogProduct product) => base.Create(product);
+    public IEnumerable<string> FetchExistingSkus() => Context.Set<Product>().Select(x => x.Sku);
 
     #endregion
 }

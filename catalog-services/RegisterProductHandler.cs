@@ -1,4 +1,6 @@
-﻿namespace BoundedContextDemo.Catalog.Services;
+﻿using static BoundedContextDemo.Catalog.Product;
+
+namespace BoundedContextDemo.Catalog.Services;
 
 public class RegisterProductHandler : Handler<RegisterProduct>
 {
@@ -15,10 +17,14 @@ public class RegisterProductHandler : Handler<RegisterProduct>
     public override void Handle(RegisterProduct args)
     {
         var (description, name, sku) = args;
+        var existingSkus = Uow.Products.FetchExistingSkus().ToArray();
 
-        var product = new Product(description, name, sku);
+        var isSuccess = TryRegister(out var registeredProduct, description, name, sku, existingSkus);
 
-        Uow.Products.Create(product);
+        if (!isSuccess)
+            return;
+
+        Uow.Products.Create(registeredProduct);
         Uow.Commit();
     }
 
