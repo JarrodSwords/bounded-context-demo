@@ -5,6 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>BoundedContextDemo.Catalog</RootNamespace>
+    <AssemblyName>BoundedContextDemo.Catalog</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

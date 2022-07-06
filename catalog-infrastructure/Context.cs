@@ -9,4 +9,15 @@ public class Context : DbContext
     public DbSet<Product> Product { get; set; }
 
     #endregion
+
+    #region Protected Interface
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseSqlServer(
+            "Data Source=BECKY\\SQLEXPRESS;Initial Catalog=BoundedContextDemo;Integrated Security=True;Connect Timeout=60;"
+        );
+    }
+
+    #endregion
 }

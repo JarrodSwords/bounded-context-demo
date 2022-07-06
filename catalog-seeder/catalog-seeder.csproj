@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>BoundedContextDemo.Catalog.Seeder</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>BoundedContextDemo.Catalog.Seeder</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="autofac" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\catalog-infrastructure\catalog-infrastructure.csproj" />
+    <ProjectReference Include="..\catalog-services\catalog-services.csproj" />
+    <ProjectReference Include="..\catalog\catalog.csproj" />
+    <ProjectReference Include="..\kernel\kernel.csproj" />
+  </ItemGroup>
+
+</Project>

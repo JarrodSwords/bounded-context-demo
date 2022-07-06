@@ -5,6 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>BoundedContextDemo.Kernel</RootNamespace>
+    <AssemblyName>BoundedContextDemo.Kernel</AssemblyName>
   </PropertyGroup>
 
 </Project>

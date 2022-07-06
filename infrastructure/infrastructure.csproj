@@ -5,6 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>BoundedContextDemo.Infrastructure</RootNamespace>
+    <AssemblyName>BoundedContextDemo.Infrastructure</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
