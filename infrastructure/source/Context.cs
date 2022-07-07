@@ -8,6 +8,7 @@ public class Context : DbContext
 
     public DbSet<Customer> Customer { get; set; }
     public DbSet<Product> Product { get; set; }
+    public DbSet<ShoppingCart> ShoppingCart { get; set; }
 
     #endregion
 

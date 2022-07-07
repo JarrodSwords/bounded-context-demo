@@ -2,7 +2,7 @@
 
 namespace BoundedContextDemo.Sales;
 
-public record SetPrice(
-    decimal Price,
-    string Sku
+public record BeginShopping(
+    string Name,
+    string Surname
 ) : Command;
