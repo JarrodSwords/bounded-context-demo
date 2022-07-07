@@ -1,14 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using static System.Guid;
 
-namespace BoundedContextDemo.Infrastructure;
+namespace BoundedContextDemo.Infrastructure.Customers;
 
 public class Context : DbContext
 {
     #region Public Interface
 
     public DbSet<Customer> Customer { get; set; }
-    public DbSet<Product> Product { get; set; }
-    public DbSet<ShoppingCart> ShoppingCart { get; set; }
 
     #endregion
 
@@ -17,13 +16,16 @@ public class Context : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer(
-            "Data Source=BECKY\\SQLEXPRESS;Initial Catalog=BoundedContextDemo;Integrated Security=True;Connect Timeout=60;"
+            "Data Source=BECKY\\SQLEXPRESS;Initial Catalog=CustomerData;Integrated Security=True;Connect Timeout=60;"
         );
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Customer>(x => x.ToView("CustomerView"));
+        modelBuilder.Entity<Customer>().HasData(
+            new Customer { Id = NewGuid(), Name = "John", Surname = "Doe" },
+            new Customer { Id = NewGuid(), Name = "Jane", Surname = "Doe" }
+        );
     }
 
     #endregion
