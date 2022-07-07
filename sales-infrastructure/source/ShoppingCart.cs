@@ -8,12 +8,13 @@ public class ShoppingCart : Entity
 {
     #region Public Interface
 
-    public Customer Customer { get; set; }
     public Guid CustomerId { get; set; }
 
     #endregion
 
     #region Static Interface
+
+    public static explicit operator ShoppingCartDto(ShoppingCart source) => new(source.Id);
 
     public static implicit operator ShoppingCart(SalesShoppingCart source) =>
         new()

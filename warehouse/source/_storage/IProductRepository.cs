@@ -2,10 +2,8 @@
 
 namespace BoundedContextDemo.Warehouse;
 
-using WarehouseProduct = Product;
-
 public interface IProductRepository : IRepository<Product>
 {
-    public WarehouseProduct Find(string sku);
-    public void Update(WarehouseProduct product);
+    public Product Find(string sku);
+    public void Update(Product product);
 }

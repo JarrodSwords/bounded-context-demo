@@ -2,6 +2,7 @@
 using BoundedContextDemo.Sales;
 using BoundedContextDemo.Warehouse;
 using static BoundedContextDemo.Kernel.Command;
+using static BoundedContextDemo.Kernel.Query;
 
 namespace BoundedContextDemo.Simulator;
 
@@ -11,6 +12,7 @@ public class Simulator
     private const string RidingMowerSku = "mower-riding-01";
     private const string ScytheSku = "mower-manual-01";
     private readonly IHandler<BeginShopping> _beginShoppingHandler;
+    private readonly IHandler<GetCustomer, CustomerDto> _getCustomerHandler;
     private readonly IHandler<ReceiveUnits> _receiveUnitsHandler;
     private readonly IHandler<RegisterProduct> _registerProductHandler;
     private readonly IHandler<SetPrice> _setPriceHandler;
@@ -18,12 +20,14 @@ public class Simulator
     #region Creation
 
     public Simulator(
+        IHandler<GetCustomer, CustomerDto> getCustomerHandler,
         IHandler<BeginShopping> beginShoppingHandler,
         IHandler<ReceiveUnits> receiveUnitsHandler,
         IHandler<RegisterProduct> registerProductHandler,
         IHandler<SetPrice> setPriceHandler
     )
     {
+        _getCustomerHandler = getCustomerHandler;
         _beginShoppingHandler = beginShoppingHandler;
         _receiveUnitsHandler = receiveUnitsHandler;
         _registerProductHandler = registerProductHandler;
@@ -69,6 +73,8 @@ public class Simulator
         _receiveUnitsHandler.Handle(new(RidingMowerSku, 12));
 
         _beginShoppingHandler.Handle(new("John", "Doe"));
+
+        var customer = _getCustomerHandler.Handle(new("John", "Doe"));
     }
 
     #endregion
