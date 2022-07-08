@@ -25,5 +25,11 @@ public class Product : Aggregate
         return this;
     }
 
+    public Product ShipUnits(uint units)
+    {
+        UnitsOnHand -= units;
+        return this;
+    }
+
     #endregion
 }

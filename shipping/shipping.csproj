@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>BoundedContextDemo.Shipping</RootNamespace>
+    <AssemblyName>BoundedContextDemo.Shipping</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\kernel\kernel.csproj" />
+    <ProjectReference Include="..\warehouse\warehouse.csproj" />
+  </ItemGroup>
+
+</Project>

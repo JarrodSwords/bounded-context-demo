@@ -19,6 +19,9 @@
     <ProjectReference Include="..\kernel\kernel.csproj" />
     <ProjectReference Include="..\sales-infrastructure\sales-infrastructure.csproj" />
     <ProjectReference Include="..\sales-services\sales-services.csproj" />
+    <ProjectReference Include="..\shipping-infrastructure\shipping-infrastructure.csproj" />
+    <ProjectReference Include="..\shipping-services\shipping-services.csproj" />
+    <ProjectReference Include="..\shipping\shipping.csproj" />
     <ProjectReference Include="..\warehouse-infrastructure\warehouse-infrastructure.csproj" />
     <ProjectReference Include="..\warehouse-services\warehouse-services.csproj" />
   </ItemGroup>
