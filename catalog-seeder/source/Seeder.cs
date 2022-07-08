@@ -1,14 +1,14 @@
-﻿using BoundedContextDemo.Kernel;
+﻿using static BoundedContextDemo.Kernel.Command;
 
 namespace BoundedContextDemo.Catalog.Seeder;
 
 public class Seeder
 {
-    private readonly Command.IHandler<RegisterProduct> _registerProductHandler;
+    private readonly IHandler<RegisterProduct> _registerProductHandler;
 
     #region Creation
 
-    public Seeder(Command.IHandler<RegisterProduct> registerProductHandler)
+    public Seeder(IHandler<RegisterProduct> registerProductHandler)
     {
         _registerProductHandler = registerProductHandler;
     }
@@ -23,7 +23,7 @@ public class Seeder
             new(
                 "An inexpensive, environmentally-conscious grass-shortening solution",
                 "Scythe",
-                "grass-man-01"
+                "mower-manual-01"
             )
         );
         _registerProductHandler.Handle(
