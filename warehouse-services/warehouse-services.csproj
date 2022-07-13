@@ -14,6 +14,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\kernel\kernel.csproj" />
+    <ProjectReference Include="..\sales\sales.csproj" />
+    <ProjectReference Include="..\warehouse-infrastructure\warehouse-infrastructure.csproj" />
     <ProjectReference Include="..\warehouse\warehouse.csproj" />
   </ItemGroup>
 

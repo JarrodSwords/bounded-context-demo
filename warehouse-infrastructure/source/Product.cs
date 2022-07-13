@@ -25,3 +25,24 @@ public class Product : Entity
 
     #endregion
 }
+
+public class LineItem : Entity
+{
+    #region Public Interface
+
+    public decimal Price { get; set; }
+    public Guid ProductId { get; set; }
+    public uint Units { get; set; }
+
+    #endregion
+}
+
+public class Order : Entity
+{
+    #region Public Interface
+
+    public Guid CustomerId { get; set; }
+    public IEnumerable<LineItem> LineItems { get; set; }
+
+    #endregion
+}

@@ -27,3 +27,7 @@ public class Product : Aggregate
 
     #endregion
 }
+
+public class Order : Aggregate
+{
+}

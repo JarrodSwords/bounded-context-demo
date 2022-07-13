@@ -4,6 +4,11 @@ namespace BoundedContextDemo.Warehouse;
 
 public interface IProductRepository : IRepository<Product>
 {
-    public Product Find(string sku);
-    public void Update(Product product);
+    Product Find(string sku);
+    void Update(Product product);
+}
+
+public interface IOrderRepository : IRepository<Order>
+{
+    Order Find(Guid id);
 }

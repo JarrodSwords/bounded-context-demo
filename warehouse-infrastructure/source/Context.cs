@@ -6,6 +6,7 @@ public class Context : DbContext
 {
     #region Public Interface
 
+    public DbSet<Order> Order { get; set; }
     public DbSet<Product> Product { get; set; }
 
     #endregion

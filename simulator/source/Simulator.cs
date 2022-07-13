@@ -1,4 +1,5 @@
 ﻿using BoundedContextDemo.Catalog;
+using BoundedContextDemo.Kernel;
 using BoundedContextDemo.Sales;
 using BoundedContextDemo.Warehouse;
 using static BoundedContextDemo.Kernel.Command;
@@ -16,6 +17,7 @@ public class Simulator
     private readonly IHandler<ReceiveUnits> _receiveUnitsHandler;
     private readonly IHandler<RegisterProduct> _registerProductHandler;
     private readonly IHandler<SetPrice> _setPriceHandler;
+    private readonly IHandler<SubmitOrder> _submitOrderHandler;
 
     #region Creation
 
@@ -24,14 +26,17 @@ public class Simulator
         IHandler<BeginShopping> beginShoppingHandler,
         IHandler<ReceiveUnits> receiveUnitsHandler,
         IHandler<RegisterProduct> registerProductHandler,
-        IHandler<SetPrice> setPriceHandler
+        IHandler<SetPrice> setPriceHandler,
+        IHandler<SubmitOrder> submitOrderHandler
     )
     {
+        EventProcessor.Init();
         _getCustomerHandler = getCustomerHandler;
         _beginShoppingHandler = beginShoppingHandler;
         _receiveUnitsHandler = receiveUnitsHandler;
         _registerProductHandler = registerProductHandler;
         _setPriceHandler = setPriceHandler;
+        _submitOrderHandler = submitOrderHandler;
     }
 
     #endregion
@@ -75,6 +80,8 @@ public class Simulator
         _beginShoppingHandler.Handle(new("John", "Doe"));
 
         var customer = _getCustomerHandler.Handle(new("John", "Doe"));
+
+        _submitOrderHandler.Handle(new(customer.Id, null));
     }
 
     #endregion
