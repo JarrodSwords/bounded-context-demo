@@ -2,7 +2,4 @@
 
 namespace BoundedContextDemo.Sales;
 
-public record SetPrice(
-    decimal Price,
-    string Sku
-) : Command;
+public record OrderSubmitted(Guid OrderId) : Event;

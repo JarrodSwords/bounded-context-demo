@@ -2,7 +2,4 @@
 
 namespace BoundedContextDemo.Sales;
 
-public record BeginShopping(
-    string Name,
-    string Surname
-) : Command;
+public record BeginShopping(Guid CustomerId) : Command;

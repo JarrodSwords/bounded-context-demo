@@ -14,11 +14,7 @@ public class BeginShoppingHandler : Handler<BeginShopping>
 
     public override void Handle(BeginShopping args)
     {
-        var (name, surname) = args;
-        var customer = Uow.Customers.Find(name, surname);
-
-        var shoppingCart = new ShoppingCart(customer.Id);
-
+        var shoppingCart = new ShoppingCart(args.CustomerId);
         Uow.ShoppingCarts.Create(shoppingCart);
         Uow.Commit();
     }

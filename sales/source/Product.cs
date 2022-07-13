@@ -6,7 +6,7 @@ public class Product : Aggregate
 {
     #region Creation
 
-    public Product(decimal price, string sku)
+    public Product(decimal price, string sku, Guid id = default) : base(id)
     {
         Price = price;
         Sku = sku;

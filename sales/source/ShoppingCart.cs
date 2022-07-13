@@ -8,7 +8,7 @@ public class ShoppingCart : Aggregate
 
     #region Creation
 
-    public ShoppingCart(Guid customerId)
+    public ShoppingCart(Guid customerId, Guid id = default) : base(id)
     {
         CustomerId = customerId;
     }
@@ -20,6 +20,12 @@ public class ShoppingCart : Aggregate
     public Guid CustomerId { get; }
     public IReadOnlyCollection<LineItem> LineItems => _lineItems.AsReadOnly();
     public decimal Total => _lineItems.Sum(x => x.Subtotal);
+
+    public ShoppingCart Add(Product product, uint units)
+    {
+        _lineItems.Add(new(product.Price, product.Id, units));
+        return this;
+    }
 
     #endregion
 }

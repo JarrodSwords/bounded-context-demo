@@ -18,7 +18,7 @@ public abstract class Repository<T> where T : Entity
 
     #region Public Interface
 
-    public void Create(T entity) => Context.Set<T>().Add(entity);
+    public T Create(T entity) => Context.Set<T>().Add(entity).Entity;
     public T Find(Expression<Func<T, bool>> predicate) => Context.Set<T>().SingleOrDefault(predicate)!;
 
     #endregion

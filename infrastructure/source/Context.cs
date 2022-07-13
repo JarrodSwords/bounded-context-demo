@@ -7,6 +7,8 @@ public class Context : DbContext
     #region Public Interface
 
     public DbSet<Customer> Customer { get; set; }
+    public DbSet<LineItem> LineItem { get; set; }
+    public DbSet<Order> Order { get; set; }
     public DbSet<Product> Product { get; set; }
     public DbSet<ShoppingCart> ShoppingCart { get; set; }
 

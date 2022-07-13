@@ -17,6 +17,7 @@ public class ProductRepository : Repository<Product>, IProductRepository
 
     #region IProductRepository Implementation
 
+    public SalesProduct Find(Guid id) => Find(x => x.Id == id);
     public SalesProduct Find(string sku) => Find(x => x.Sku == sku);
 
     public void Update(SalesProduct salesProduct)

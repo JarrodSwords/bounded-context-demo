@@ -6,11 +6,11 @@ public class LineItem : Entity
 {
     #region Creation
 
-    public LineItem(decimal price, Guid productId, uint quantity, Guid id = default) : base(id)
+    public LineItem(decimal price, Guid productId, uint units, Guid id = default) : base(id)
     {
         Price = price;
         ProductId = productId;
-        Quantity = quantity;
+        Units = units;
     }
 
     #endregion
@@ -19,8 +19,8 @@ public class LineItem : Entity
 
     public decimal Price { get; }
     public Guid ProductId { get; }
-    public uint Quantity { get; }
-    public decimal Subtotal => Price * Quantity;
+    public decimal Subtotal => Price * Units;
+    public uint Units { get; }
 
     #endregion
 }

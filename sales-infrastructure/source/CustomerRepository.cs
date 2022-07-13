@@ -17,8 +17,6 @@ public class CustomerRepository : Repository<Customer>, ICustomerRepository
 
     #region ICustomerRepository Implementation
 
-    public SalesCustomer Find(string name, string surname) => Find(x => x.Name == name && x.Surname == surname);
-
     public CustomerDto QueryCustomer(string name, string surname)
     {
         var customer = (Context as Context).Customer

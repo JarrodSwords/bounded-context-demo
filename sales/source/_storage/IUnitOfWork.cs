@@ -3,8 +3,7 @@
 public interface IUnitOfWork
 {
     ICustomerRepository Customers { get; }
-
-    //IOrderRepository Orders { get; }
+    IOrderRepository Orders { get; }
     IProductRepository Products { get; }
     IShoppingCartRepository ShoppingCarts { get; }
 
